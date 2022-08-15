@@ -1,0 +1,34 @@
+.not-found-container {
+  height: calc(100vh - 80px);
+  width: auto;
+}
+
+.not-found-image-wrapper {
+  height: inherit;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-image {
+    min-width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit:cover;
+}
+
+.not-found-button-wrapper {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  bottom: 5vh;
+  width: 100%;
+  height: fit-content;
+}
+
+.btn-home {
+  text-decoration: none;
+  margin: auto;
+}

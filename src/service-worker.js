@@ -37,6 +37,14 @@ registerRoute(
       return false;
     } // If this looks like a URL for a resource, because it contains // a file extension, skip.
 
+    if (url.pathname.startsWith('/admin')) {
+      return false;
+    } // skip admin page
+
+    if (url.pathname.startsWith('/api')) {
+      return false;
+    } // skip api fetch
+
     if (url.pathname.match(fileExtensionRegexp)) {
       return false;
     } // Return true to signal that we want to use the handler.
@@ -51,6 +59,19 @@ registerRoute(
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new StaleWhileRevalidate({
+    cacheName: 'images',
+    plugins: [
+      // Ensure that once this runtime cache reaches a maximum size the
+      // least-recently used images are removed.
+      new ExpirationPlugin({ maxEntries: 50 }),
+    ],
+  })
+);
+
+registerRoute(
+  // Add in any other file extensions or routing criteria as needed.
+  ({ url }) => url.origin === 'https://res.cloudinary.com/', // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'images',
     plugins: [

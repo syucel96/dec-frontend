@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Fieldwork";
+  src: url("./Fonts/5752560/c5e1c81a-8f78-45d1-bb98-2566836c0d46.woff2")
+    format("woff2");
+  src: url("./Fonts/5752560/0d1b971b-3025-4dd2-a4a9-d51768162540.woff")
+    format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fieldwork";
+  src: url("./Fonts/5752664/556c6f4a-99e7-4d50-90a8-5efc755296d9.woff2")
+    format("woff2");
+  src: url("./Fonts/5752664/58381cfc-9dc9-4ce5-8dd6-343c0a2de6ca.woff")
+    format("woff");
+  font-weight: bold;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Fieldwork", sans-serif;
+}
+
+body {
+  background: #000000;
+}
+
+/*buttons*/
+:root {
+  --primary: linear-gradient(to left, #3f67e1ff, #42c97ced);
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 2px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: #4666ae;
+  color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgba(86,83,85,0.6); 
+}
+
+.btn--outline {
+  color: #ffffff;
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #42c97ced, #3f67e1ff) 1;
+  transition: all 0.3s ease-out;
+}
+
+.btn--medium {
+  padding: 8px 20px;
+  font-size: 20px;
+}
+
+.btn--large {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+/*Loader*/
+
+.center {
+  width: 100%;
+  height: 100%;
+}
+.loader {
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader > i {
+  color: #ffffff;
+}
+
+@media (hover: hover), (-ms-high-contrast: none) {
+  .btn--medium:hover,
+  .btn--large:hover {
+    background: var(--primary);
+    color: #ffffff;
+  }
+}
